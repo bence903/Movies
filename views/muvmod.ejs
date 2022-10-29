@@ -1,0 +1,15 @@
+<%- include('header') -%>
+<h1>Módosítás</h1>
+    </div>
+    <div class="container2">
+        <form method="post">
+            <label>Rendező neve:</label>
+            <input type="text" id="nev" name="nev"
+                   value="<%= (typeof Rendezo === 'undefined') ? '' : Rendezo.nev %>"><br><br>
+            <label>Rendező születési éve:</label>
+            <input type="number" id="ev" name="ev"
+                   value="<%= (typeof Rendezo === 'undefined') ? '' : Rendezo.ev %>"><br><br>
+            <input type="submit" value="Submit">
+        </form>
+        <a href="/edit/<%= film._id %>"><button class="piri">Vissza</button></a>
+<%- include('footer') -%>

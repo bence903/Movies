@@ -1,0 +1,39 @@
+<%- include('header') -%>
+<h1>Adatok</h1>
+</div>
+<div class="container2">
+    <table align="center">
+        <tr>
+            <th>Film címe</th>
+            <th>Premier éve</th>
+            <th>Műfaj</th>
+        </tr>
+        <tr>
+            <td>
+                <%= film.cim %>
+            </td>
+            <td>
+                <%= film.ev %>
+            </td>
+            <td>
+                <%= film.mufaj %>
+            </td>
+        </tr>
+
+    </table>
+    <br><br><hr>
+    <table align="center">
+
+        <tr>
+            <th>Rendezők, színészek</th>
+        </tr>
+        <% rendezok.forEach(function(Rendezo){ %>
+            <tr>
+                <td>
+                    <%= Rendezo.nev %>
+                </td>
+            </tr>
+        <% }); %>
+    </table>
+    <a href="index.html"><button class="piri">Vissza</button></a>
+<%- include('footer') -%>
