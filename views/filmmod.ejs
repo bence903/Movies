@@ -7,29 +7,13 @@
             <input type="text" id="cim" name="cim"
                    value="<%= (typeof film === 'undefined') ? '' : film.cim %>"><br><br>
             <label>Premier éve:</label>
-            <input type="text" id="ev" name="ev"
-                   value="<%= (typeof film === 'undefined') ? '' : film.ev %>">><br><br>
+            <input type="text" id="release" name="release"
+                   value="<%= (typeof film === 'undefined') ? '' : film.release %>"><br><br>
             <label>Műfaj:</label>
-            <input type="text" id="mufaj" name="mufaj"
-                   value="<%= (typeof film === 'undefined') ? '' : film.mufaj %>"><br><br><hr>
+            <input type="text" id="type" name="type"
+                   value="<%= (typeof film === 'undefined') ? '' : film.type %>"><br><br><hr>
             <input type="submit" value="Submit"/>
         </form>
-        <table align="center">
-            <tr>
-                <th>Rendezők</th>
-            </tr>
-            <% rendezok.forEach(function(Rendezo){ %>
-                    <tr>
-                        <td>
-                            <%= Rendezo.nev %>
-                        </td>
-                        <td>
-                            <a href="/edit/<%= film._id %>/edit/<%= Rendezo._id %>"><button class="kek">Módosítás</button></a>
-                            <a href="/edit/<%= film._id %>/del/<%= Rendezo._id %>"><button class="piri">Törlés</button></a>
-                        </td>
-                    </tr>
-                <% }); %>
-        </table>
-        <a href="/edit/<%= film._id %>/new"><button class="zod">Új Rendező</button></a><br>
+        
         <a href="/"><button class="piri">Vissza</button></a>
 <%- include('footer') -%>

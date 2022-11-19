@@ -4,7 +4,21 @@
 const requireOption = require('../requireOption');
 
 module.exports = function (objectrepository) {
-    return function (req, res, next) {
-        next();
+    const RendezoModel = requireOption(objectrepository, 'RendezoModel');
+
+    return function(req, res, next) {
+        RendezoModel.findOne(
+            {
+                _id: req.params.dirid
+            },
+            (err, rendezo) => {
+                if (err || !rendezo) {
+                    return next(err);
+                }
+
+                res.locals.rendezo = rendezo;
+                return next();
+            }
+        );
     };
 };

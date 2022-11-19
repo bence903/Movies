@@ -5,15 +5,23 @@
     <table align="center" border="1px solid black">
         <tr>
             <th><b>Film</b></th>
+            <th><b>Premier éve</b></th>
+            <th><b>Műfaj</b></th>
             <th><b>Műveletek</b></th>
         </tr>
-        <% filmek.forEach(function(Film){ %>
+        <% filmek.forEach(function(film){ %>
                     <tr>
                         <td>
-                            <%= Film.cim %>
+                            <%= film.cim %>
                         </td>
                         <td>
-                            <a href="/adatok/<%= film._id %>"><button class="sarga">Adatok</button></a>
+                            <%= film.release %>
+                        </td>
+                        <td>
+                            <%= film.type %>
+                        </td>
+                        <td>
+                            <a href="/adatok/<%= film._id %>"><button class="sarga">Rendezők</button></a>
                             <a href="/edit/<%= film._id %>"><button class="kek">Módosítás</button></a>
                             <a href="/del/<%= film._id %>"><button class="piri">Törlés</button></a>
                         </td>

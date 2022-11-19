@@ -10,13 +10,13 @@
         </tr>
         <tr>
             <td>
-                <%= film.cim %>
+                <%= (typeof film === 'undefined') ? '' : film.cim %>
             </td>
             <td>
-                <%= film.ev %>
+                <%= (typeof film === 'undefined') ? '' : film.release %>
             </td>
             <td>
-                <%= film.mufaj %>
+                <%= (typeof film === 'undefined') ? '' : film.type %>
             </td>
         </tr>
 
@@ -25,15 +25,25 @@
     <table align="center">
 
         <tr>
-            <th>Rendezők, színészek</th>
+            <th>Rendezők</th>
+            <th>Születési év</th>
+            <th>Műveletek</th>
         </tr>
         <% rendezok.forEach(function(Rendezo){ %>
             <tr>
                 <td>
                     <%= Rendezo.nev %>
                 </td>
+                <td>
+                    <%= Rendezo.ev %>
+                </td>
+                <td>
+                    <a href="/adatok/<%= film._id %>/edit/<%= Rendezo._id %>"><button class="kek">Módosítás</button></a>
+                    <a href="/adatok/<%= film._id %>/del/<%= Rendezo._id %>"><button class="piri">Törlés</button></a>
+                </td>
             </tr>
         <% }); %>
     </table>
-    <a href="index.html"><button class="piri">Vissza</button></a>
+    <a href='/adatok/<%= film._id %>/new'><button class="zod">Új Rendező</button></a><br>
+    <a href='/'><button class="piri">Vissza</button></a>
 <%- include('footer') -%>

@@ -4,7 +4,16 @@
 const requireOption = require('../requireOption');
 
 module.exports = function (objectrepository) {
-    return function (req, res, next) {
-        next();
+    const FilmModel = requireOption(objectrepository, 'FilmModel');
+
+    return function(req, res, next) {
+        FilmModel.findOne({ _id: req.params.movieid }, (err, film) => {
+            if (err || !film) {
+                return next(err);
+            }
+
+            res.locals.film = film;
+            return next();
+        });
     };
 };
